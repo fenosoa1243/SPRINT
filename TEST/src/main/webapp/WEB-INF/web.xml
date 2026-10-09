@@ -1,0 +1,42 @@
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://jakarta.ee/xml/ns/jakartaee
+                             http://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <context-param>
+        <param-name>controller</param-name>
+        <param-value>mg.itu.controller</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>prefix</param-name>
+        <param-value>/WEB-INF/views/</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>suffix</param-name>
+        <param-value>.jsp</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.framework.listener.ContextListener</listener-class>
+    </listener>
+
+    <!-- Configuration du chemin du fichier Spring -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>FRAMEWORK</servlet-name>
+        <servlet-class>com.framework.controller.FrontController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FRAMEWORK</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
