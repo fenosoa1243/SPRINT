@@ -35,4 +35,20 @@ public class HomeController {
         vueData.setData("message", "Données envoyées avec succès");
         return vueData;
     }
+
+    @Url(value = "/inscription")
+    public VueData inscription() {
+        VueData vueData = new VueData();
+        vueData.setVue("inscription");
+        return vueData;
+    }
+
+    @Url(value = "/inscription", method = "POST")
+    public VueData confirmation(String nom, int age) {
+        VueData vue = new VueData();
+        vue.setVue("confirmation");
+        vue.setData("nom", nom);
+        vue.setData("age", age);
+        return vue;
+    }
 }
